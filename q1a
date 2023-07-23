@@ -1,0 +1,31 @@
+main:
+    lw a1, 3 # a1 ==3 // a = 3
+    lw a2, 20 # a2 == 20 // b = 20
+    lw a3,10 # a3 == 10 // c = 10
+    lw a4, zero # a4==0 // x = 0 
+    sw a1, 0(a1)
+    sw a2, 0(a2)
+    sw a3, 0(a3)
+    sw a4, 0(a4)
+
+    slt t1, a1, 0 # se a1 < 0, t1 = 1 // fazendo o inverso pra n precisar testar o igual
+    sgt t2, a2, 62 # se a2 > 62 , t2 = 1 // fazendo o inverso pra n precisar testar o igual
+    sgt t3, a3, 15 # se a3 > 15,  t3 = 1
+
+    #Para entrar na condicional precisamos que t1=0, t2=0 e t3= 1
+    beq t1,0, teste_b
+    j fim
+
+    teste_b:
+    beq t2,0, teste_c
+    j fim 
+
+    teste_c:
+    beq t3, 0, fim
+    lw a4, 1 
+    sw a4, 0(a4)
+    j fim 
+
+
+fim:
+halt 
