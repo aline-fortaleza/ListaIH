@@ -1,7 +1,7 @@
 main:
-    lw a1, 3 # a1 ==3 // a = 3
-    lw a2, 20 # a2 == 20 // b = 20
-    lw a3,10 # a3 == 10 // c = 10
+    lw a1, a # a1 =a
+    lw a2, b # a2 =b
+    lw a3, c # a3 =c
     lw a4, zero # a4==0 // x = 0 
     sw a1, 0(a1)
     sw a2, 0(a2)
@@ -29,3 +29,7 @@ main:
 
 fim:
 halt 
+
+a: .word 0d3
+b: .word 0d20
+c: .word 0d10
